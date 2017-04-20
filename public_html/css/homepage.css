@@ -13,6 +13,9 @@ body{
     font-family: roboto;
     width:100%;
     text-align: center;
+    border-style: solid;
+    border-width: 4px;
+    border-color: white;
 }
 
 h1{
@@ -35,9 +38,17 @@ img{
     display: inline-block;
 }
 
+.leftdiv{
+    float: left;
+    
+}
 
+.rightdiv{
+    float: right;
+}
 
-
-
-
+a {color:#1100B8;}      /* unvisited link */
+a:visited {color:#1100B8;}  /* visited link */
+a:hover {color:#EC0F0F;}  /* mouse over link */
+a:active {color:#1100B8;}  /* selected link */
 
