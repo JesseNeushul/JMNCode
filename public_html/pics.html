@@ -9,21 +9,69 @@ and open the template in the editor.
         <title>Photos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/homepage.css">
+        <link rel="stylesheet" href="css/pics.css">
         <link rel="icon" href="img/favicon.ico">
+        
+
     </head>
     <body>
-        <h1>Pictures</h1>
+     
+  <section class="slider">
+  <button class="next">Next</button>
+  <button class="prev">Previous</button>
+  <div class="container">
+    <div style="display: inline-block;">
+      <img src="img/slide1.jpg"/>
+    </div>
+    <div>
+     <img src="img/slide2.jpg"/>
+    </div>
+    <div>
+      <img src="img/slide3.jpg"/>
+    </div>
+  </div>
+  </section>
+  
+        <script>
+            var currentIndex = 0,
+  items = $('.container div'),
+  itemAmt = items.length;
+
+function cycleItems() {
+  var item = $('.container div').eq(currentIndex);
+  items.hide();
+  item.css('display','inline-block');
+}
+
+var autoSlide = setInterval(function() {
+  currentIndex += 1;
+  if (currentIndex > itemAmt - 1) {
+    currentIndex = 0;
+  }
+  cycleItems();
+}, 3000);
+
+$('.next').click(function() {
+  clearInterval(autoSlide);
+  currentIndex += 1;
+  if (currentIndex > itemAmt - 1) {
+    currentIndex = 0;
+  }
+  cycleItems();
+});
+
+$('.prev').click(function() {
+  clearInterval(autoSlide);
+  currentIndex -= 1;
+  if (currentIndex < 0) {
+    currentIndex = itemAmt - 1;
+  }
+  cycleItems();
+});
+
+        </script>
         
-        <h2>
-            <a href="google photo link">Photo Album</a>
-        </h2>
         
-        <p>
-            The idea here would be to link an album from my Google Photos of
-            pictures that I intend to share on this site. I haven't made the album yet.
-        </p>
         
-        <img src ="something" alt='Featured pics that change every so often' width='200'>
     </body>
 </html>
